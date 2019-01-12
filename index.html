@@ -17,7 +17,7 @@ mathjax: true
 <!-- % Uses a surrogate function that is  -->
 
  <br>
-RL algorithms typically try to maximize the expected discounted reward.
+Reinforcement Learning (RL) algorithms typically try to maximize the expected discounted reward.
  <br>
 Expected discounted reward:&ensp; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
 TRPO uses a version of the Minorize Maximize (MM) algorithm to formulate the optimization problem.<br>
@@ -48,7 +48,8 @@ Constraint:$&nbsp;&nbsp;\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\c
 <br>
 Solving the optimization problem:<br>
 
-L is approximated to the first order and the KL divergence to the second.<br>
+L is approximated to the first order and the KL divergence to the second.<br><br>
+
 $L_{\theta_k}(\theta)\approx g^T(\theta - \theta_k)$ <br>
 $D_{KL}(\theta||\theta_k)\approx \tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \theta_k)$ <br><br>
 
