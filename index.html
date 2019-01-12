@@ -19,7 +19,7 @@ mathjax: true
  <br>
 Reinforcement Learning (RL) algorithms typically try to maximize the expected discounted reward.
  <br>
-Expected discounted reward:&ensp; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
+Expected discounted reward:&ensp; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{so,ao,...} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
 TRPO uses a version of the Minorize Maximize (MM) algorithm to formulate the optimization problem.<br>
 The MM algorithm uses a surrogate function that is a lower bound for $\eta$.<br>
 It approximates $\eta$ under the current policy. The surrogate function is quadratic and therefore is easy to optimize.<br>
