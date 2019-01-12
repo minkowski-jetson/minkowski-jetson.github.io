@@ -7,7 +7,7 @@ mathjax: true
 	<h1>github of Chris Gavin</h1>
 	<p>Computer Science PhD Student at the University of Colorado</p>
 
-<h1>TRPO</h1>
+<h2>TRPO</h2>
 
 <!-- \begin{document} -->
 <!-- \maketitle -->
@@ -60,7 +60,7 @@ $\theta_{k+1}-\theta_k=\sqrt{\tfrac{2\delta}{g^T H^{-1}g} }H^{-1}g $<br>
 The term on the right hand side is referred to as the Natural Gradient<br>
 Let $\beta = \sqrt{\tfrac{2\delta}{g^T H^{-1}g} }$<br>
 Now $\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $<br>
-Let $\beta = 1$. They now solve $H\theta_{k+1}-\theta_k= g$ approximately using the conjugate gradient method <br>
+Let $\beta = 1$. They now solve $H(\theta_{k+1}-\theta_k)= g$ &nbsp; approximately using the conjugate gradient method <br>
 to avoid computing the Hessian and it's inverse.<br>
 $\beta$ was a scalar and didn't effect direction but it is now used with line search to find a good step size<br>
 Picutre of overall algorithm
