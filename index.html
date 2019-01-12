@@ -6,5 +6,64 @@ mathjax: true
 <div class="blurb">
 	<h1>github of Chris Gavin</h1>
 	<p>Computer Science PhD Student at the University of Colorado</p>
-  $\nabla_\theta$
+
+\title{TRPO}
+
+\begin{document}
+\maketitle
+% Minorize Maxmize Algorithm
+
+% Uses a surrogate function that is 
+
+\noindent \\
+RL algorithms typically try to maximize the expected discounted reward.
+\noindent \\
+Expected discounted reward:\; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$\\
+TRPO uses a version of the Minorize Maximize (MM) algorithm to formulate the optimization problem.\\
+The MM algorithm uses a surrogate function that is a lower bound for $\eta$.\\
+It approximates $\eta$ under the current policy. The surrogate function is quadratic and therefore is easy to optimize.\\
+The surrogate function for TRPO is $M=L(\theta)-C*KL$\\
+% Using MM they iteratively optimize M w.r.t the policy. Then M is reevaluated with the new policy
+\noindent \\
+TRPO uses an advantage function rather than the reward as it lowers variance\\
+Advantage function: $A_\pi(s,a)=Q_\pi(s,a)-V_\pi(s)$\\
+The use an estimate of A: $\hat{A}_t$\\
+\noindent \\
+Importance Sampling\\
+TRPO Uses a form of importance sampling in the objective function\\
+Samples are taken from the old policy and the ratio of the new policy at those samples divided by the old policy with those samples is used to represent the policy portion of the objective function. This makes policies that are better than the old policy with the same samples more valuable.
+\\
+\noindent
+This leaves us with an optimization problem like this:\\
+\noindent \\
+$M=L(\theta)-C*KL$
+\noindent \\
+Loss Function $L(\theta): \hat{\mathbb{E}_t }\Big[\dfrac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{old} }(a_t|s_t)}\hat{A}_t\Big]$\\
+\noindent \\
+Constraint:$\:\:\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] \;<=\; \delta$
+
+\noindent\\
+Solving the optimization problem:
+
+L is approximated to the first order and the KL divergence to the second
+$L_{\theta_k}(\theta)\approx g^T(\theta - \theta_k)$ \\
+$D_{KL}(\theta||\theta_k)\approx \tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \theta_k)$ \\
+
+\noindent
+The quadratic part of L is small compared to KL term and Hessian of L isn't positive semidefinite, but the Hessian of KL is
+The problem with approximations is now\\
+$\theta_{k+1}=argmax_\theta\:g^T(\theta - \theta_k)\\
+\indent s.t.\:\tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \theta_k) \leq \delta $\\
+% \phantom{x}\hspace{3ex} for fancy spaing
+Solving analytically leads to:\\
+$\theta_{k+1}-\theta_k=\sqrt{\tfrac{2\delta}{g^T H^{-1}g} }H^{-1}g $\\
+The term on the right hand side is referred to as the Natural Gradient\\
+Let $\beta = \sqrt{\tfrac{2\delta}{g^T H^{-1}g} }$\\
+Now $\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $\\
+Let $\beta = 1$. They now solve $H\theta_{k+1}-\theta_k= H^{-1}g$ approximately using the conjugate gradient method \\
+to avoid computing the Hessian and it's inverse.\\
+$\beta$ was a scalar and didn't effect direction but it is now used with line search to find a good step size\\
+Picutre of overall algorithm
+\end{document}
+  <!-- $\nabla_\theta$ -->
 </div><!-- /.blurb -->
