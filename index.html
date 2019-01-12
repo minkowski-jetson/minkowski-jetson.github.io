@@ -8,6 +8,7 @@ mathjax: true
 	<p>Computer Science PhD Student at the University of Colorado</p>
 
 <h1 style="text-align:left;">TRPO</h1>
+<h2 style="text-align:left;">Trust Region Policy Optimization Notes</h2>
 
 <!-- \begin{document} -->
 <!-- \maketitle -->
@@ -18,7 +19,7 @@ mathjax: true
  <br>
 RL algorithms typically try to maximize the expected discounted reward.
  <br>
-Expected discounted reward:&emsp; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
+Expected discounted reward:&ensp; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
 TRPO uses a version of the Minorize Maximize (MM) algorithm to formulate the optimization problem.<br>
 The MM algorithm uses a surrogate function that is a lower bound for $\eta$.<br>
 It approximates $\eta$ under the current policy. The surrogate function is quadratic and therefore is easy to optimize.<br>
@@ -41,7 +42,7 @@ $M=L(\theta)-C*KL$
  <br>
 Loss Function $L(\theta): \hat{\mathbb{E}_t }\Big[\dfrac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{old} }(a_t|s_t)}\hat{A}_t\Big]$<br>
  <br>
-Constraint:$&nbsp;&nbsp;\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] &emsp;\leq&emsp; \delta$
+Constraint:$&nbsp;&nbsp;\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] &ensp;\leq&ensp; \delta$
 
 <br>
 <br>
@@ -54,7 +55,7 @@ $D_{KL}(\theta||\theta_k)\approx \tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \t
 
 The quadratic part of L is small compared to KL term and the Hessian of L isn't positive semidefinite, but the Hessian of the KL term is.<br><br>
 The problem with approximations is now:<br>
-$\theta_{k+1}=argmax_\theta&nbsp;g^T(\theta - \theta_k)<br>
+$\theta_{k+1}=argmax_\theta&ensp;g^T(\theta - \theta_k)<br>
 &emsp; s.t.&nbsp;\tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \theta_k) \leq \delta $<br>
 <!-- % \phantom{x}\hspace{3ex} for fancy spaing -->
 Solving analytically leads to:<br>
@@ -66,6 +67,7 @@ Now $\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $<br>
 Let $\beta = 1$. They now solve $H(\theta_{k+1}-\theta_k)= g$ &nbsp; approximately using the conjugate gradient method <br>
 to avoid computing the Hessian and it's inverse.<br>
 $\beta$ was a scalar and didn't effect direction, but it is now used with line search to find a good step size<br>
+<br><br>
 <!-- Picutre of overall algorithm -->
 <!-- \end{document} -->
   <!-- $\nabla_\theta$ -->
