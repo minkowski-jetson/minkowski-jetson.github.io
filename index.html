@@ -18,7 +18,7 @@ mathjax: true
  <br>
 RL algorithms typically try to maximize the expected discounted reward.
  <br>
-Expected discounted reward:\; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
+Expected discounted reward:&emsp; $\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{\tau\sim\pi_\theta} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$<br>
 TRPO uses a version of the Minorize Maximize (MM) algorithm to formulate the optimization problem.<br>
 The MM algorithm uses a surrogate function that is a lower bound for $\eta$.<br>
 It approximates $\eta$ under the current policy. The surrogate function is quadratic and therefore is easy to optimize.<br>
@@ -40,7 +40,7 @@ $M=L(\theta)-C*KL$
  <br>
 Loss Function $L(\theta): \hat{\mathbb{E}_t }\Big[\dfrac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{old} }(a_t|s_t)}\hat{A}_t\Big]$<br>
  <br>
-Constraint:$&nbsp;&nbsp;\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] \;<=\; \delta$
+Constraint:$&nbsp;&nbsp;\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] &emsp;\leq&emsp; \delta$
 
 <br>
 Solving the optimization problem:
