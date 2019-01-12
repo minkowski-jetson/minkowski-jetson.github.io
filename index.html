@@ -40,7 +40,7 @@ $M=L(\theta)-C*KL$
  <br>
 Loss Function $L(\theta): \hat{\mathbb{E}_t }\Big[\dfrac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{old} }(a_t|s_t)}\hat{A}_t\Big]$<br>
  <br>
-Constraint:$\:\:\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] \;<=\; \delta$
+Constraint:$&nbsp;&nbsp;\hat{\mathbb{E}_t }\Big[KL\Big[\pi_{\theta_{old}}\Big(\cdot|s_t\Big),\pi_{\theta}\Big(\cdot|s_t\Big)\Big]\Big] \;<=\; \delta$
 
 <br>
 Solving the optimization problem:
@@ -52,8 +52,8 @@ $D_{KL}(\theta||\theta_k)\approx \tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \t
 
 The quadratic part of L is small compared to KL term and Hessian of L isn't positive semidefinite, but the Hessian of KL is
 The problem with approximations is now<br>
-$\theta_{k+1}=argmax_\theta\:g^T(\theta - \theta_k)<br>
-\indent s.t.\:\tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \theta_k) \leq \delta $<br>
+$\theta_{k+1}=argmax_\theta&nbsp;g^T(\theta - \theta_k)<br>
+&emsp; s.t.&nbsp;\tfrac{1}{2}(\theta - \theta_k)^T H(\theta - \theta_k) \leq \delta $<br>
 <!-- % \phantom{x}\hspace{3ex} for fancy spaing -->
 Solving analytically leads to:<br>
 $\theta_{k+1}-\theta_k=\sqrt{\tfrac{2\delta}{g^T H^{-1}g} }H^{-1}g $<br>
