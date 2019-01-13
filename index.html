@@ -9,7 +9,7 @@ mathjax: true
 
 <h1 style="text-align:left;">Current Research</h1>
 
-<p class="norm">The video is a bit shaky. The video is in a playlist with some of my 5+ year old projects.</p>
+<p class="norm">The video is a bit shaky. It grabs the same object twice, but that's pretty uncommon as that area normally gets cluttered after the first screw drop. The video is in a playlist with some of my 5+ year old projects.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWABySa_8guOkCh04UxyeQDPNO7DnXcJr" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p class="norm">I increased the grasp success rate on these m6 screws to roughly 95%, although it's a first working version, using a <br> Convolutional Neural Network to predict grasp success. Our previous baseline success rate without deep learning was ~80% percent, but <br>that baseline is <r>somewhat arbitrary as it is based on how well it was hardcoded.<br>
 I'm currently writing a paper on this.<br></p>
@@ -75,7 +75,7 @@ Let $\beta = \sqrt{\tfrac{2\delta}{g^T H^{-1}g} }$<br>
 Now $\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $<br>
 Let $\beta = 1$. They now solve $H(\theta_{k+1}-\theta_k)= g$ &nbsp; approximately using the conjugate gradient method <br>
 to avoid computing the Hessian and it's inverse.<br>
-$\beta$ was a scalar and didn't effect direction, but it is now used with line search to find a good step size<br>
+$\beta$ was a scalar and didn't affect direction, but it is now used with line search to find a good step size<br>
 <br><br>
 <!-- Picutre of overall algorithm -->
 <!-- \end{document} -->
