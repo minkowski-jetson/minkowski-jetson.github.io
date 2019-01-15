@@ -15,9 +15,10 @@ mathjax: true
 I'm currently writing a paper on this.<br></p>
 
 <!-- <div class="bodcont"> -->
-<br><br>
-<h1 style="text-align:left;">TRPO</h1>
-<h2 style="text-align:left;">Trust Region Policy Optimization Notes</h2>
+<div class="maxwid">
+  <br><br>
+  <h1 style="text-align:left;">TRPO</h1>
+  <h2 style="text-align:left;">Trust Region Policy Optimization Notes</h2>
 
 <!-- \begin{document} -->
 <!-- \maketitle -->
@@ -40,7 +41,7 @@ I'm currently writing a paper on this.<br></p>
    <br>
   Importance Sampling:<br>
   TRPO Uses a form of importance sampling in the objective function.<br>
-  Samples are taken from the old policy and the ratio of the new policy at those samples divided by the old policy at those samples is used to <br>represent the policy portion of the objective function. This makes policies that are better than the old policy with the same samples more valuable.
+  Samples are taken from the old policy and the ratio of the new policy at those samples divided by the old policy at those samples is used to represent the policy portion of the objective function. This makes policies that are better than the old policy with the same samples more valuable.
   <br>
   <br>
 
@@ -73,10 +74,11 @@ I'm currently writing a paper on this.<br></p>
   The term on the right hand side is referred to as the Natural Policy Gradient.<br>
   Let $\beta = \sqrt{\tfrac{2\delta}{g^T H^{-1}g} }$<br>
   Now $\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $<br>
-  Let $\beta = 1$. They now solve $H(\theta_{k+1}-\theta_k)= g$ &nbsp; approximately using the conjugate gradient method <br>
+  Let $\beta = 1$. They now solve $H(\theta_{k+1}-\theta_k)= g$ &nbsp; approximately using the conjugate gradient method
   to avoid computing the Hessian and it's inverse.<br>
   $\beta$ was a scalar and didn't affect direction, but it is now used with line search to find a good step size<br>
   <br><br>
+</div>
 <!-- </div> -->
 <!-- Picutre of overall algorithm -->
 <!-- \end{document} -->

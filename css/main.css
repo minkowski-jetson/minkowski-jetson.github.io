@@ -57,3 +57,6 @@ ul.posts li {
     margin: 0 auto;
     zoom: 1;
 }
+.maxwid{
+    max-width: 800px;
+}
