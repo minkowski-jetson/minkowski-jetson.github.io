@@ -50,3 +50,10 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+.bodcont{
+    max-width: 800px;
+    padding: 0 30px;
+    margin: 0 auto;
+    zoom: 1;
+}
