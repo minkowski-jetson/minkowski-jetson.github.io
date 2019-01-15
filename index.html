@@ -72,7 +72,7 @@ I'm currently writing a paper on this.<br></p>
   $\theta_{k+1}-\theta_k=\sqrt{\tfrac{2\delta}{g^T H^{-1}g} }H^{-1}g $<br>
 
   The term on the right hand side is referred to as the Natural Policy Gradient.<br>
-  Let $\beta = (\sqrt{\tfrac{2\delta}{g^T H^{-1}g})^{-1} }$<br>
+  Let $\beta = 1/\sqrt{\tfrac{2\delta}{g^T H^{-1}g} }$<br>
   Now $\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $<br>
   Let $\beta = 1$. They now solve $H(\theta_{k+1}-\theta_k)= g$ &nbsp; approximately using the conjugate gradient method
   to avoid computing the Hessian and it's inverse.<br>
