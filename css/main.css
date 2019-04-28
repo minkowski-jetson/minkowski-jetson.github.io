@@ -59,4 +59,5 @@ ul.posts li {
 }
 .maxwid{
     max-width: 800px;
+    display: block;
 }
