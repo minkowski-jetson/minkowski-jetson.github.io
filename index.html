@@ -30,14 +30,14 @@ I'm currently writing a paper on this.<br></p>
    <br>
   Expected discounted reward:&ensp; $$\eta(\pi_\theta)=\displaystyle\mathop{\mathbb{E}_{so,ao,...} }\Big[ \sum\limits_{t=0}^{\infty}\gamma^t r_t \Big]$$<br>
   TRPO uses a version of the Minorize Maximize (MM) algorithm to formulate the optimization problem.<br>
-  The MM algorithm uses a surrogate function that is a lower bound for $$\eta$$.<br>
-  It approximates $$\eta$$ under the current policy. The surrogate function is quadratic and therefore is easy to optimize.<br>
+  The MM algorithm uses a surrogate function that is a lower bound for $\eta$.<br>
+  It approximates $\eta$ under the current policy. The surrogate function is quadratic and therefore is easy to optimize.<br>
   The surrogate function for TRPO is $$M=L(\theta)-C*KL$$<br>
   <!-- % Using MM they iteratively optimize M w.r.t the policy. Then M is reevaluated with the new policy -->
    <br>
   TRPO uses an advantage function rather than the reward as it lowers variance.<br>
   Advantage function: $$A_\pi(s,a)=Q_\pi(s,a)-V_\pi(s)$$<br>
-  They use an estimate of $$A: \hat{A}_t$$<br>
+  They use an estimate of $A: \hat{A}_t$<br>
    <br>
   Importance Sampling:<br>
   TRPO Uses a form of importance sampling in the objective function.<br>
@@ -74,9 +74,9 @@ I'm currently writing a paper on this.<br></p>
   Let $$1/\beta = \sqrt{\tfrac{2\delta}{g^T H^{-1}g} }$$<br>
   Now $$\theta_{k+1}-\theta_k=\tfrac{1}{\beta} H^{-1}g $$<br>
   The term on the right hand side is referred to as the Natural Policy Gradient.<br>
-  Let $$\beta = 1$$. They now solve $$H(\theta_{k+1}-\theta_k)= g$$ &nbsp; approximately using the conjugate gradient method
+  Let $\beta = 1$. They now solve $$H(\theta_{k+1}-\theta_k)= g$$ &nbsp; approximately using the conjugate gradient method
   to avoid computing the Hessian and it's inverse.<br>
-  $$\beta$$ was a scalar and didn't affect direction, but it is now used with line search to find a good step size<br>
+  $\beta$ was a scalar and didn't affect direction, but it is now used with line search to find a good step size<br>
   <br><br>
 </div>
 <!-- </div> -->
