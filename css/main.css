@@ -60,3 +60,8 @@ ul.posts li {
 .maxwid{
     max-width: 800px;
 }
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+}
